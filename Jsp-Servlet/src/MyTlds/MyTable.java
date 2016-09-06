@@ -89,7 +89,7 @@ public class MyTable extends TagSupport {
 			}
 			out.write("</tr>");
 		}while(i>=valueList.size());
-		
+		//http://stackoverflow.com/questions/17741721/getting-string-value-from-enum-in-java
 		out.write("</table>");
 	}
 	
