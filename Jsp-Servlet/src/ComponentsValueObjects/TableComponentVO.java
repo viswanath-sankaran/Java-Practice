@@ -3,6 +3,10 @@ package ComponentsValueObjects;
 import java.util.ArrayList;
 import java.util.Map;
 
+enum COMPONENT_TYPES{
+	INPUTTEXT,OUTPUTTEXT,RADIO;
+}
+
 public class TableComponentVO {
 
 	private Map<Integer, String> component_type;

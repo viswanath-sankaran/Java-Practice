@@ -35,26 +35,36 @@ public class WelcomeServlet extends HttpServlet {
 		ArrayList<String> valueList=new ArrayList<String>();
 		ArrayList<TableComponentVO> tblAttrList=new ArrayList<TableComponentVO>();
 		
-		tblVo.setNumberOfColumns(3);
-		captionMap.put(1, "Id");
-		captionMap.put(2, "Name");
-		captionMap.put(3, "DOB");
+		tblVo.setNumberOfColumns(5);
+		captionMap.put(1, "");
+		captionMap.put(2, "Id");
+		captionMap.put(3, "Name");
+		captionMap.put(4, "DOB");
+		captionMap.put(5, "View");
 		tblVo.setComponent_caption(captionMap);
 		
-		fldTypeMap.put(1, "outputText");
-		fldTypeMap.put(2, "inputText");
-		fldTypeMap.put(3, "combobox");
+		fldTypeMap.put(1, "checkbox");
+		fldTypeMap.put(2, "outputText");
+		fldTypeMap.put(3, "inputText");
+		fldTypeMap.put(4, "combobox");
+		fldTypeMap.put(5, "radio");
 		tblVo.setComponent_type(fldTypeMap);
 		
+		valueList.add("");
 		valueList.add("Emp001");
 		valueList.add("Viswa");
 		valueList.add("20-Jun-1988");
+		valueList.add("");
+		valueList.add("");
 		valueList.add("Emp002");
 		valueList.add("Siva");
-		valueList.add("04-July-1988");
+		valueList.add("04-Jul-1988");
+		valueList.add("");
+		valueList.add("");
 		valueList.add("Emp003");
 		valueList.add("Charini");
 		valueList.add("21-Jun-1991");
+		valueList.add("");
 		tblVo.setComponent_value_list(valueList);
 		
 		return tblVo;

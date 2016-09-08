@@ -11,6 +11,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<script  type="text/javascript" src="jquery-1.12.4.min.js"></script>
 <style type="text/css">
 .highlite{
 	background-color: lightblue;
@@ -41,7 +42,14 @@
 	valueList.add(empBean);
 	
  %>
+ <script>
+	$(document).ready(function(){
+ alert("ready");
+ });
+</script> 
  <script type="text/javascript">
+ 
+ 
  	function selectRow(comp){
  		//alert(comp.checked);
  		if(comp.checked){
@@ -49,6 +57,13 @@
  		}else{
  			comp.parentNode.parentNode.setAttribute('class','');
  		}
+ 	}
+ 	function radioclick(comp){
+ 		<%
+ 			//session.setAttribute("radioselect", "on");
+ 			request.setAttribute("radioselect", "on");
+ 		%>
+ 		window.location.reload(true);
  	}
  </script>
  
@@ -65,6 +80,11 @@
 	<%-- <ee:EmpEntry captions="<%=captionList%>" type="<%=typeList%>" value="<%=valueList %>"/> --%>
 	
 	<mt:Table binding="<%=tableAttributes %>"/>
-		
+	<%if(request.getAttribute("radioselect")!= null && request.getAttribute("radioselect").equals("on")){ %>
+	<input type="radio" onclick="radioclick(this);" checked="checked"/>
+	<%} else {%>
+	<input type="radio" onclick="radioclick(this);"/>
+	<%} %>	
+	
 </body>
 </html>
