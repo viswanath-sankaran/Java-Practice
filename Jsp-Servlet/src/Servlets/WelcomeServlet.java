@@ -2,7 +2,9 @@ package Servlets;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -10,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ComponentsValueObjects.FormComponentVO;
 import ComponentsValueObjects.TableComponentVO;
 
 public class WelcomeServlet extends HttpServlet {
@@ -68,5 +71,28 @@ public class WelcomeServlet extends HttpServlet {
 		tblVo.setComponent_value_list(valueList);
 		
 		return tblVo;
+	}
+	
+	
+	List<FormComponentVO> getFormComponents(){
+		
+		List<FormComponentVO>  formComponentList = new ArrayList<FormComponentVO>();
+		
+		List locationList = Arrays.asList("Chennai", "Madurai", "Trichy");
+		
+		
+		FormComponentVO name = new FormComponentVO("Name", "TextBox", Arrays.asList("Vishwa"));
+		FormComponentVO age = new FormComponentVO("Age", "TextBox", Arrays.asList("24"));
+		FormComponentVO location = new FormComponentVO("Location", "Select", locationList);
+		FormComponentVO friendsName = new FormComponentVO("Friends Name", "TextBox", Arrays.asList("abc"));
+		
+				
+		formComponentList.add(name);
+		formComponentList.add(age);
+		
+		
+		
+		return formComponentList;
+		
 	}
 }

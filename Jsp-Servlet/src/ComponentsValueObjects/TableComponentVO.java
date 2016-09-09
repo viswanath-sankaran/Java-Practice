@@ -13,6 +13,20 @@ public class TableComponentVO {
 	private Map<Integer, String> component_caption;
 	private ArrayList<String> component_value_list;
 	private Integer numberOfColumns;
+	
+	public TableComponentVO() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public TableComponentVO(Map<Integer, String> component_type,
+			Map<Integer, String> component_caption,
+			ArrayList<String> component_value_list, Integer numberOfColumns) {
+		super();
+		this.component_type = component_type;
+		this.component_caption = component_caption;
+		this.component_value_list = component_value_list;
+		this.numberOfColumns = numberOfColumns;
+	}
 
 	public Map<Integer, String> getComponent_type() {
 		return component_type;
