@@ -98,7 +98,7 @@ public class MyTable extends TagSupport {
 
 	private void buildComponents(JspWriter out, COMPONENT_TYPES_ENUM type,
 			String value) throws IOException {
-		;
+		
 		switch (type) {
 		case INPUTTEXT: {
 			out.write("<input type='text' value='" + value + "'/>");

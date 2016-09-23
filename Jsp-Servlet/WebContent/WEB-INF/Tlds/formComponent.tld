@@ -10,7 +10,7 @@
 	<uri>http://tomcat.apache.org/example-taglib</uri>
 	
 	<tag>
-		<name>MyForm</name>
+		<name>FormView</name>
 		<tag-class>MyTlds.FormComponent</tag-class>
 		<attribute>
 			<name>binding</name>

@@ -1,3 +1,4 @@
+<%@page import="ComponentsValueObjects.FormComponentVO"%>
 <%@page import="ComponentsValueObjects.TableComponentVO"%>
 <%@page import="beans.EmployeeBean"%>
 <%@page import="java.util.ArrayList"%>
@@ -7,6 +8,7 @@
 <%@ taglib uri="/WEB-INF/Tlds/employeEntryTag.tld" prefix="ee" %>
 <%@ taglib uri="/WEB-INF/Tlds/myCaptions.tld" prefix="mc" %>
 <%@ taglib uri="/WEB-INF/Tlds/myTable.tld" prefix="mt" %>
+<%@ taglib uri="/WEB-INF/Tlds/formComponent.tld" prefix="fv" %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -20,7 +22,9 @@
 </head>
 <body>
 <%
-	TableComponentVO tableAttributes=(TableComponentVO)session.getAttribute("tableAttributes");
+	//TableComponentVO tableAttributes =(TableComponentVO)session.getAttribute("tableAttributes ");
+	ArrayList<FormComponentVO> formView=(ArrayList<FormComponentVO>)session.getAttribute("formView");
+	System.out.print(formView.get(0).getComponentCaption());
 	ArrayList<String> captionList=new ArrayList<String>();
 	captionList.add("Id");
 	captionList.add("Name");
@@ -79,12 +83,8 @@
 	<br/><br/><br/><br/><br/><br/>
 	<%-- <ee:EmpEntry captions="<%=captionList%>" type="<%=typeList%>" value="<%=valueList %>"/> --%>
 	
-	<mt:Table binding="<%=tableAttributes %>"/>
-	<%if(request.getAttribute("radioselect")!= null && request.getAttribute("radioselect").equals("on")){ %>
-	<input type="radio" onclick="radioclick(this);" checked="checked"/>
-	<%} else {%>
-	<input type="radio" onclick="radioclick(this);"/>
-	<%} %>	
+	<%-- <mt:Table binding="<%=tableAttributes %>"/> --%>
+	<fv:FormView binding="<%=formView %>"></fv:FormView>
 	
 </body>
 </html>

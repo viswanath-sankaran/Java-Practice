@@ -23,7 +23,8 @@ public class WelcomeServlet extends HttpServlet {
 		String homepage="MyPages/userDetail.jsp";
 		try {
 			//System.out.println("my servlet");
-			request.getSession().setAttribute("tableAttributes", buildTableComponent());
+			//request.getSession().setAttribute("tableAttributes", buildTableComponent());
+			request.getSession().setAttribute("formView", getFormComponents());
 			response.sendRedirect(homepage);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -74,21 +75,26 @@ public class WelcomeServlet extends HttpServlet {
 	}
 	
 	
-	List<FormComponentVO> getFormComponents(){
+	private ArrayList<FormComponentVO> getFormComponents(){
 		
-		List<FormComponentVO>  formComponentList = new ArrayList<FormComponentVO>();
+		ArrayList<FormComponentVO>  formComponentList = new ArrayList<FormComponentVO>();
 		
 		List locationList = Arrays.asList("Chennai", "Madurai", "Trichy");
+		List genderList = Arrays.asList("Male");
 		
 		
-		FormComponentVO name = new FormComponentVO("Name", "TextBox", Arrays.asList("Vishwa"));
-		FormComponentVO age = new FormComponentVO("Age", "TextBox", Arrays.asList("24"));
-		FormComponentVO location = new FormComponentVO("Location", "Select", locationList);
-		FormComponentVO friendsName = new FormComponentVO("Friends Name", "TextBox", Arrays.asList("abc"));
+		FormComponentVO name = new FormComponentVO("Name", "TextBox", "Vishwa");
+		FormComponentVO age = new FormComponentVO("Age", "TextBox", "24");
+		FormComponentVO gender = new FormComponentVO("Gender", "RadioButton", genderList,"Male");
+		FormComponentVO location = new FormComponentVO("Location", "SELECTITEM", locationList,"Madurai");
+		FormComponentVO hobies = new FormComponentVO("Hobies", "TextBox", "Cricket,Songs");
 		
 				
 		formComponentList.add(name);
 		formComponentList.add(age);
+		formComponentList.add(gender);
+		formComponentList.add(location);
+		formComponentList.add(hobies);
 		
 		
 		

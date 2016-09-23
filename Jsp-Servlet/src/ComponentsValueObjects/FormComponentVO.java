@@ -4,25 +4,36 @@ import java.util.List;
 
 public class FormComponentVO {
 
-	private String componentType;
 	private String componentCaption;
+	private String componentType;
 	private List<String> componentListValues;
 	private String componentValue;
 
-	public FormComponentVO(String componentType, String componentCaption,
+	
+
+	public FormComponentVO(String componentCaption, String componentType,
+			List<String> componentListValues) {
+		super();
+		this.componentCaption = componentCaption;
+		this.componentType = componentType;
+		this.componentListValues = componentListValues;
+	}
+
+	public FormComponentVO(String componentCaption, String componentType,
 			String componentValue) {
 		super();
-		this.componentType = componentType;
 		this.componentCaption = componentCaption;
+		this.componentType = componentType;
 		this.componentValue = componentValue;
 	}
 
-	public FormComponentVO(String componentType, String componentCaption,
-			List<String> componentListValues) {
+	public FormComponentVO(String componentCaption, String componentType,
+			List<String> componentListValues, String componentValue) {
 		super();
-		this.componentType = componentType;
 		this.componentCaption = componentCaption;
+		this.componentType = componentType;
 		this.componentListValues = componentListValues;
+		this.componentValue = componentValue;
 	}
 
 	public String getComponentType() {
