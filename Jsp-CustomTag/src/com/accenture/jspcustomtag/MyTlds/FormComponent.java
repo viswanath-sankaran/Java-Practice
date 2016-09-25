@@ -11,6 +11,7 @@ import javax.servlet.jsp.tagext.TagSupport;
 import com.accenture.jspcustomtag.ComponentsValueObjects.COMPONENT_TYPES_ENUM;
 import com.accenture.jspcustomtag.ComponentsValueObjects.FormComponentVO;
 import com.accenture.jspcustomtag.ComponentsValueObjects.NEW_COMPONENT_TYPES_ENUM;
+import com.accenture.jspcustomtag.ComponentsValueObjects.SelectOneComponentVO;
 
 
 public class FormComponent extends TagSupport {
@@ -64,7 +65,7 @@ public class FormComponent extends TagSupport {
 
 	private void buildComponent(JspWriter writeComp,
 			NEW_COMPONENT_TYPES_ENUM compType, String compValue,
-			List<String> compValueList) throws IOException {
+			List compValueList) throws IOException {
 		switch (compType) {
 		case TEXTBOX: {
 			writeComp.write("<input type='text' value='" + compValue + "'/>");
@@ -92,13 +93,13 @@ public class FormComponent extends TagSupport {
 		}
 	}
 
-	private void buildSelectComponent(JspWriter writeComp,List<String> compValueList,String compValue) throws IOException{
+	private void buildSelectComponent(JspWriter writeComp,List<SelectOneComponentVO> compValueList,String compValue) throws IOException{
 		writeComp.write("<select>");
-		for(String value:compValueList){
-			if(value.equals(compValue)){
-				writeComp.write("<option value='"+value+"' selected='selected'>"+value+"</option>");
+		for(SelectOneComponentVO valueObj:compValueList){
+			if(valueObj.getSelectValue().equals(compValue)){
+				writeComp.write("<option value='"+valueObj.getSelectKey()+"' selected='selected'>"+valueObj.getSelectValue()+"</option>");
 			}else{
-				writeComp.write("<option value='"+value+"'>"+value+"</option>");
+				writeComp.write("<option value='"+valueObj.getSelectKey()+"'>"+valueObj.getSelectValue()+"</option>");
 			}
 		}
 		writeComp.write("</select>");
