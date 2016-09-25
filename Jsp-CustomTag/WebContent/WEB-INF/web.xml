@@ -2,12 +2,12 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <display-name>Jsp-Servlet</display-name>
   <welcome-file-list>
-    <welcome-file>/MyPages/Welcome.jsp</welcome-file>
+    <welcome-file>/com.accenture.jspcustomtag.MyPages/Welcome.jsp</welcome-file>
   </welcome-file-list>
   
   <servlet>
   	<servlet-name>welcome</servlet-name>
-  	<servlet-class>Servlets.WelcomeServlet</servlet-class>
+  	<servlet-class>com.accenture.jspcustomtag.Servlets.WelcomeServlet</servlet-class>
   	<load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>

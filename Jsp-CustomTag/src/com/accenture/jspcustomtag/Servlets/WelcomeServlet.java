@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.accenture.jspcustomtag.ComponentsValueObjects.FormComponentVO;
+import com.accenture.jspcustomtag.ComponentsValueObjects.SelectOneComponentVO;
 import com.accenture.jspcustomtag.ComponentsValueObjects.TableComponentVO;
 
 
@@ -21,7 +22,7 @@ public class WelcomeServlet extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException {
-		String homepage="MyPages/userDetail.jsp";
+		String homepage="com.accenture.jspcustomtag.MyPages/userDetail.jsp";
 		try {
 			//System.out.println("my servlet");
 			//request.getSession().setAttribute("tableAttributes", buildTableComponent());
@@ -80,7 +81,16 @@ public class WelcomeServlet extends HttpServlet {
 		
 		ArrayList<FormComponentVO>  formComponentList = new ArrayList<FormComponentVO>();
 		
-		List locationList = Arrays.asList("Chennai", "Madurai", "Trichy");
+		//List locationList = Arrays.asList("Chennai", "Madurai", "Trichy");
+		List<SelectOneComponentVO> locationList=new ArrayList<SelectOneComponentVO>();
+		SelectOneComponentVO obj1=new SelectOneComponentVO("MAS", "Chennai");
+		locationList.add(obj1);
+		obj1=new SelectOneComponentVO("MDU", "Madurai");
+		locationList.add(obj1);
+		obj1=new SelectOneComponentVO("TJ", "Tanjur");
+		locationList.add(obj1);
+		obj1=new SelectOneComponentVO("TPJ", "Trichy");
+		locationList.add(obj1);
 		List genderList = Arrays.asList("Male");
 		
 		

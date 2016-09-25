@@ -6,13 +6,13 @@ public class FormComponentVO {
 
 	private String componentCaption;
 	private String componentType;
-	private List<String> componentListValues;
+	private List componentListValues;
 	private String componentValue;
 
 	
 
 	public FormComponentVO(String componentCaption, String componentType,
-			List<String> componentListValues) {
+			List componentListValues) {
 		super();
 		this.componentCaption = componentCaption;
 		this.componentType = componentType;
@@ -28,7 +28,7 @@ public class FormComponentVO {
 	}
 
 	public FormComponentVO(String componentCaption, String componentType,
-			List<String> componentListValues, String componentValue) {
+			List componentListValues, String componentValue) {
 		super();
 		this.componentCaption = componentCaption;
 		this.componentType = componentType;
@@ -52,11 +52,11 @@ public class FormComponentVO {
 		this.componentCaption = componentCaption;
 	}
 
-	public List<String> getComponentListValues() {
+	public List getComponentListValues() {
 		return componentListValues;
 	}
 
-	public void setComponentListValues(List<String> componentListValues) {
+	public void setComponentListValues(List componentListValues) {
 		this.componentListValues = componentListValues;
 	}
 
