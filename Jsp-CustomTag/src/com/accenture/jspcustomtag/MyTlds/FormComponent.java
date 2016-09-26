@@ -5,19 +5,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.jsp.JspWriter;
-import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.TagSupport;
 
-import com.accenture.jspcustomtag.ComponentsValueObjects.COMPONENT_TYPES_ENUM;
+import com.accenture.jspcustomtag.ComponentsValueObjects.COMPONENT;
 import com.accenture.jspcustomtag.ComponentsValueObjects.FormComponentVO;
-import com.accenture.jspcustomtag.ComponentsValueObjects.NEW_COMPONENT_TYPES_ENUM;
 import com.accenture.jspcustomtag.ComponentsValueObjects.SelectOneComponentVO;
-
 
 public class FormComponent extends TagSupport {
 
 	public ArrayList<FormComponentVO> binding;
-
 
 	public ArrayList<FormComponentVO> getBinding() {
 		return binding;
@@ -53,9 +49,7 @@ public class FormComponent extends TagSupport {
 			writeComp.write(formCompObj.getComponentCaption());
 			writeComp.write("</td>");
 			writeComp.write("<td style='width:20%'>");
-			buildComponent(writeComp,
-					NEW_COMPONENT_TYPES_ENUM.valueOf(formCompObj
-							.getComponentType().toUpperCase()),
+			buildComponent(writeComp, formCompObj.getComponentType(),
 					formCompObj.getComponentValue(),
 					formCompObj.getComponentListValues());
 			writeComp.write("</td>");
@@ -63,9 +57,8 @@ public class FormComponent extends TagSupport {
 		}
 	}
 
-	private void buildComponent(JspWriter writeComp,
-			NEW_COMPONENT_TYPES_ENUM compType, String compValue,
-			List compValueList) throws IOException {
+	private void buildComponent(JspWriter writeComp, COMPONENT compType,
+			String compValue, List compValueList) throws IOException {
 		switch (compType) {
 		case TEXTBOX: {
 			writeComp.write("<input type='text' value='" + compValue + "'/>");
@@ -93,26 +86,32 @@ public class FormComponent extends TagSupport {
 		}
 	}
 
-	private void buildSelectComponent(JspWriter writeComp,List<SelectOneComponentVO> compValueList,String compValue) throws IOException{
+	private void buildSelectComponent(JspWriter writeComp,
+			List<SelectOneComponentVO> compValueList, String compValue)
+			throws IOException {
 		writeComp.write("<select>");
-		for(SelectOneComponentVO valueObj:compValueList){
-			if(valueObj.getSelectValue().equals(compValue)){
-				writeComp.write("<option value='"+valueObj.getSelectKey()+"' selected='selected'>"+valueObj.getSelectValue()+"</option>");
-			}else{
-				writeComp.write("<option value='"+valueObj.getSelectKey()+"'>"+valueObj.getSelectValue()+"</option>");
+		for (SelectOneComponentVO valueObj : compValueList) {
+			if (valueObj.getSelectValue().equals(compValue)) {
+				writeComp.write("<option value='" + valueObj.getSelectKey()
+						+ "' selected='selected'>" + valueObj.getSelectValue()
+						+ "</option>");
+			} else {
+				writeComp.write("<option value='" + valueObj.getSelectKey()
+						+ "'>" + valueObj.getSelectValue() + "</option>");
 			}
 		}
 		writeComp.write("</select>");
 	}
-	
-	private void buildRadioComponent(JspWriter writeComp,List<String> compValueList,String compValue) throws IOException{
-		for(String value:compValueList){
-			if(value.equalsIgnoreCase(compValue)){
-				writeComp.write("<input type='radio' checked>"+value);
-			}else{
-				writeComp.write("<input type='radio'>"+value);		
+
+	private void buildRadioComponent(JspWriter writeComp,
+			List<String> compValueList, String compValue) throws IOException {
+		for (String value : compValueList) {
+			if (value.equalsIgnoreCase(compValue)) {
+				writeComp.write("<input type='radio' checked>" + value);
+			} else {
+				writeComp.write("<input type='radio'>" + value);
 			}
 		}
-		
+
 	}
 }

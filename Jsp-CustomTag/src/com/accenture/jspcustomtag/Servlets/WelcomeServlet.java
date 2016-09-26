@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.accenture.jspcustomtag.ComponentsValueObjects.COMPONENT;
 import com.accenture.jspcustomtag.ComponentsValueObjects.FormComponentVO;
 import com.accenture.jspcustomtag.ComponentsValueObjects.SelectOneComponentVO;
 import com.accenture.jspcustomtag.ComponentsValueObjects.TableComponentVO;
@@ -22,7 +23,7 @@ public class WelcomeServlet extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException {
-		String homepage="com.accenture.jspcustomtag.MyPages/userDetail.jsp";
+		String homepage="pages/userDetail.jsp";
 		try {
 			//System.out.println("my servlet");
 			//request.getSession().setAttribute("tableAttributes", buildTableComponent());
@@ -94,11 +95,11 @@ public class WelcomeServlet extends HttpServlet {
 		List genderList = Arrays.asList("Male");
 		
 		
-		FormComponentVO name = new FormComponentVO("Name", "TextBox", "Vishwa");
-		FormComponentVO age = new FormComponentVO("Age", "TextBox", "24");
-		FormComponentVO gender = new FormComponentVO("Gender", "RadioButton", genderList,"Male");
-		FormComponentVO location = new FormComponentVO("Location", "SELECTITEM", locationList,"Madurai");
-		FormComponentVO hobies = new FormComponentVO("Hobies", "TextBox", "Cricket,Songs");
+		FormComponentVO name = new FormComponentVO("Name", COMPONENT.TEXTBOX, "Vishwa");
+		FormComponentVO age = new FormComponentVO("Age", COMPONENT.TEXTBOX, "24");
+		FormComponentVO gender = new FormComponentVO("Gender", COMPONENT.RADIOBUTTON, genderList,"Male");
+		FormComponentVO location = new FormComponentVO("Location", COMPONENT.SELECTITEM, locationList,"Madurai");
+		FormComponentVO hobies = new FormComponentVO("Hobies", COMPONENT.TEXTBOX, "Cricket,Songs");
 		
 				
 		formComponentList.add(name);

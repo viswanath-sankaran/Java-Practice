@@ -1,17 +1,18 @@
 package com.accenture.jspcustomtag.ComponentsValueObjects;
 
+
 import java.util.List;
 
 public class FormComponentVO {
 
 	private String componentCaption;
-	private String componentType;
+	private COMPONENT componentType;
 	private List componentListValues;
 	private String componentValue;
 
 	
 
-	public FormComponentVO(String componentCaption, String componentType,
+	public FormComponentVO(String componentCaption, COMPONENT componentType,
 			List componentListValues) {
 		super();
 		this.componentCaption = componentCaption;
@@ -19,7 +20,7 @@ public class FormComponentVO {
 		this.componentListValues = componentListValues;
 	}
 
-	public FormComponentVO(String componentCaption, String componentType,
+	public FormComponentVO(String componentCaption, COMPONENT componentType,
 			String componentValue) {
 		super();
 		this.componentCaption = componentCaption;
@@ -27,7 +28,7 @@ public class FormComponentVO {
 		this.componentValue = componentValue;
 	}
 
-	public FormComponentVO(String componentCaption, String componentType,
+	public FormComponentVO(String componentCaption, COMPONENT componentType,
 			List componentListValues, String componentValue) {
 		super();
 		this.componentCaption = componentCaption;
@@ -36,11 +37,11 @@ public class FormComponentVO {
 		this.componentValue = componentValue;
 	}
 
-	public String getComponentType() {
+	public COMPONENT getComponentType() {
 		return componentType;
 	}
 
-	public void setComponentType(String componentType) {
+	public void setComponentType(COMPONENT componentType) {
 		this.componentType = componentType;
 	}
 
